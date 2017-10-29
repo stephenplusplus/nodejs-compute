@@ -31,8 +31,8 @@ var util = require('util');
  * A Project object allows you to interact with your Google Compute Engine
  * project.
  *
- * @resource [Projects Overview]{@link https://cloud.google.com/compute/docs/projects}
- * @resource [Projects Resource]{@link https://cloud.google.com/compute/docs/reference/v1/projects}
+ * @see [Projects Overview]{@link https://cloud.google.com/compute/docs/projects}
+ * @see [Projects Resource]{@link https://cloud.google.com/compute/docs/reference/v1/projects}
  *
  * @constructor
  * @alias module:compute/project
@@ -65,8 +65,8 @@ function Project(compute) {
     /**
      * Get the project's metadata.
      *
-     * @resource [Projects: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/projects/get}
-     * @resource [Projects Resource]{@link https://cloud.google.com/compute/docs/reference/v1/projects}
+     * @see [Projects: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/projects/get}
+     * @see [Projects Resource]{@link https://cloud.google.com/compute/docs/reference/v1/projects}
      *
      * @param {function=} callback - The callback function.
      * @param {?error} callback.err - An error returned while making this
@@ -105,4 +105,9 @@ util.inherits(Project, common.ServiceObject);
  */
 common.util.promisifyAll(Project);
 
+/**
+ * Reference to the {@link Project} class.
+ * @name module:@google-cloud/compute.Project
+ * @see Project
+ */
 module.exports = Project;

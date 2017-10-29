@@ -41,7 +41,7 @@ var util = require('util');
  * handling. In addition, the backend service monitors health checking and does
  * not send traffic to unhealthy instances.
  *
- * @resource [Backend Services Overview]{@link https://cloud.google.com/compute/docs/load-balancing/http/backend-service}
+ * @see [Backend Services Overview]{@link https://cloud.google.com/compute/docs/load-balancing/http/backend-service}
  *
  * @constructor
  * @alias module:compute/service
@@ -54,7 +54,7 @@ function Service(compute, name) {
     /**
      * Create a backend service.
      *
-     * @param {object} config - See {module:compute#createService}.
+     * @param {object} config - See {@link Compute#createService}.
      *
      * @example
      * var config = {
@@ -137,8 +137,8 @@ function Service(compute, name) {
     /**
      * Get the metadata of this backend service.
      *
-     * @resource [BackendService Resource]{@link https://cloud.google.com/compute/docs/reference/v1/backendServices#resource}
-     * @resource [BackendService: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/backendServices/get}
+     * @see [BackendService Resource]{@link https://cloud.google.com/compute/docs/reference/v1/backendServices#resource}
+     * @see [BackendService: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/backendServices/get}
      *
      * @param {function=} callback - The callback function.
      * @param {?error} callback.err - An error returned while making this
@@ -177,11 +177,11 @@ util.inherits(Service, common.ServiceObject);
 /**
  * Delete the backend service.
  *
- * @resource [BackendServices: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/backendServices/delete}
+ * @see [BackendServices: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/backendServices/delete}
  *
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -220,12 +220,12 @@ Service.prototype.delete = function(callback) {
 /**
  * Get the most recent health check results.
  *
- * @resource [BackendServices: getHealth API Documentation]{@link https://cloud.google.com/compute/docs/reference/latest/backendServices/getHealth}
+ * @see [BackendServices: getHealth API Documentation]{@link https://cloud.google.com/compute/docs/reference/latest/backendServices/getHealth}
  *
  * @param {string|object} group - The fully-qualified URL of an Instance Group
  *     resource.
  * @param {string} group.name - The name of the Instance Group resource.
- * @param {module:compute/zone|string} group.zone - The name of the zone or a
+ * @param {Zone|string} group.zone - The name of the zone or a
  *     Zone object.
  * @param {function} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
@@ -292,13 +292,13 @@ Service.prototype.getHealth = function(group, callback) {
 /**
  * Set the backend service's metadata.
  *
- * @resource [BackendService Resource]{@link https://cloud.google.com/compute/docs/reference/v1/backendServices#resource}
+ * @see [BackendService Resource]{@link https://cloud.google.com/compute/docs/reference/v1/backendServices#resource}
  *
  * @param {object} metadata - See a
  *     [BackendService resource](https://cloud.google.com/compute/docs/reference/v1/backendServices#resource).
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -352,4 +352,9 @@ Service.prototype.setMetadata = function(metadata, callback) {
  */
 common.util.promisifyAll(Service);
 
+/**
+ * Reference to the {@link Service} class.
+ * @name module:@google-cloud/compute.Service
+ * @see Service
+ */
 module.exports = Service;

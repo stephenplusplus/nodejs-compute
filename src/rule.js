@@ -36,7 +36,7 @@ var util = require('util');
  * directs traffic to specific target pools (for load balancing) or target
  * instances (for protocol forwarding).
  *
- * @resource [Forwarding rules]{@link https://cloud.google.com/compute/docs/load-balancing/network/forwarding-rules}
+ * @see [Forwarding rules]{@link https://cloud.google.com/compute/docs/load-balancing/network/forwarding-rules}
  *
  * @constructor
  * @alias module:compute/rule
@@ -60,7 +60,7 @@ function Rule(scope, name) {
     /**
      * Create a forwarding rule.
      *
-     * @param {object} config - See {module:compute#createRule} or
+     * @param {object} config - See {@link Compute#createRule} or
      *     {module:compute/region#createRule} if accessing this object through
      *     a Region.
      *
@@ -140,10 +140,10 @@ function Rule(scope, name) {
     /**
      * Get the metadata of this rule.
      *
-     * @resource [GlobalForwardingRule Resource]{@link https://cloud.google.com/compute/docs/reference/v1/globalForwardingRules#resource}
-     * @resource [ForwardingRule Resource]{@link https://cloud.google.com/compute/docs/reference/v1/globalForwardingRules#resource}
-     * @resource [GlobalForwardingRules: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/globalForwardingRules/get}
-     * @resource [ForwardingRules: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules/get}
+     * @see [GlobalForwardingRule Resource]{@link https://cloud.google.com/compute/docs/reference/v1/globalForwardingRules#resource}
+     * @see [ForwardingRule Resource]{@link https://cloud.google.com/compute/docs/reference/v1/globalForwardingRules#resource}
+     * @see [GlobalForwardingRules: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/globalForwardingRules/get}
+     * @see [ForwardingRules: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules/get}
      *
      * @param {function=} callback - The callback function.
      * @param {?error} callback.err - An error returned while making this
@@ -181,12 +181,12 @@ util.inherits(Rule, common.ServiceObject);
 /**
  * Delete the rule.
  *
- * @resource [GlobalForwardingRules: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/globalForwardingRules/delete}
- * @resource [ForwardingRules: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules/delete}
+ * @see [GlobalForwardingRules: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/globalForwardingRules/delete}
+ * @see [ForwardingRules: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules/delete}
  *
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -225,8 +225,8 @@ Rule.prototype.delete = function(callback) {
 /**
  * Set the target for this forwarding rule.
  *
- * @resource [GlobalForwardingRules: setTarget API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/globalForwardingRules/setTarget}
- * @resource [ForwardingRules: setTarget API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules/setTarget}
+ * @see [GlobalForwardingRules: setTarget API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/globalForwardingRules/setTarget}
+ * @see [ForwardingRules: setTarget API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules/setTarget}
  *
  * @param {string} target - The full or valid partial URL of the target resource
  *     to receive the matched traffic. For regional forwarding rules, this
@@ -285,4 +285,9 @@ Rule.prototype.setTarget = function(target, callback) {
  */
 common.util.promisifyAll(Rule);
 
+/**
+ * Reference to the {@link Rule} class.
+ * @name module:@google-cloud/compute.Rule
+ * @see Rule
+ */
 module.exports = Rule;

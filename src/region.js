@@ -63,8 +63,8 @@ var Subnetwork = require('./subnetwork.js');
 /**
  * A Region object allows you to interact with a Google Compute Engine region.
  *
- * @resource [Regions & Zones Overview]{@link https://cloud.google.com/compute/docs/zones}
- * @resource [Region Resource]{@link https://cloud.google.com/compute/docs/reference/v1/regions}
+ * @see [Regions & Zones Overview]{@link https://cloud.google.com/compute/docs/zones}
+ * @see [Region Resource]{@link https://cloud.google.com/compute/docs/reference/v1/regions}
  *
  * @constructor
  * @alias module:compute/region
@@ -115,8 +115,8 @@ function Region(compute, name) {
     /**
      * Get the region's metadata.
      *
-     * @resource [Region Resource]{@link https://cloud.google.com/compute/docs/reference/v1/regions}
-     * @resource [Regions: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/regions/get}
+     * @see [Region Resource]{@link https://cloud.google.com/compute/docs/reference/v1/regions}
+     * @see [Regions: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/regions/get}
      *
      * @param {function=} callback - The callback function.
      * @param {?error} callback.err - An error returned while making this
@@ -162,10 +162,10 @@ util.inherits(Region, common.ServiceObject);
 /**
  * Get a reference to a Google Compute Engine address in this region.
  *
- * @resource [Instances and Networks]{@link https://cloud.google.com/compute/docs/instances-and-network}
+ * @see [Instances and Networks]{@link https://cloud.google.com/compute/docs/instances-and-network}
  *
  * @param {string} name - Name of the address.
- * @return {module:compute/address}
+ * @returns {module:compute/address}
  *
  * @example
  * var address = region.address('address-name');
@@ -177,9 +177,9 @@ Region.prototype.address = function(name) {
 /**
  * Create an address in this region.
  *
- * @resource [Instances and Networks]{@link https://cloud.google.com/compute/docs/instances-and-network}
- * @resource [Address Resource]{@link https://cloud.google.com/compute/docs/reference/v1/addresses}
- * @resource [Addresses: insert API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/addresses/insert}
+ * @see [Instances and Networks]{@link https://cloud.google.com/compute/docs/instances-and-network}
+ * @see [Address Resource]{@link https://cloud.google.com/compute/docs/reference/v1/addresses}
+ * @see [Addresses: insert API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/addresses/insert}
  *
  * @param {string} name - Name of the address.
  * @param {object=} options - See an
@@ -188,7 +188,7 @@ Region.prototype.address = function(name) {
  * @param {?error} callback.err - An error returned while making this request.
  * @param {module:compute/address} callback.address - The created Address
  *     object.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -246,8 +246,8 @@ Region.prototype.createAddress = function(name, options, callback) {
 /**
  * Create a subnetwork in this region.
  *
- * @resource [Subnetwork Resource]{@link https://cloud.google.com/compute/docs/reference/v1/subnetworks#resource}
- * @resource [Subnetwork: insert API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/subnetworks/insert}
+ * @see [Subnetwork Resource]{@link https://cloud.google.com/compute/docs/reference/v1/subnetworks#resource}
+ * @see [Subnetwork: insert API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/subnetworks/insert}
  *
  * @param {string} name - Name of the subnetwork.
  * @param {object} config - See a
@@ -263,7 +263,7 @@ Region.prototype.createAddress = function(name, options, callback) {
  * @param {?error} callback.err - An error returned while making this request.
  * @param {module:compute/subnetwork} callback.subnetwork - The created
  *    Subnetwork object.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -332,8 +332,8 @@ Region.prototype.createSubnetwork = function(name, config, callback) {
 /**
  * Create a forwarding rule in this region.
  *
- * @resource [ForwardingRule Resource]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules#resource}
- * @resource [ForwardingRules: insert API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules/insert}
+ * @see [ForwardingRule Resource]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules#resource}
+ * @see [ForwardingRules: insert API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules/insert}
  *
  * @param {string} name - Name of the rule.
  * @param {object} config - See a
@@ -358,7 +358,7 @@ Region.prototype.createSubnetwork = function(name, config, callback) {
  * @param {function} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
  * @param {module:compute/rule} callback.rule - The created Rule object.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -393,8 +393,8 @@ Region.prototype.createRule = function(name, config, callback) {
 /**
  * Get a list of addresses in this region.
  *
- * @resource [Instances and Networks]{@link https://cloud.google.com/compute/docs/instances-and-network}
- * @resource [Addresses: list API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/addresses/list}
+ * @see [Instances and Networks]{@link https://cloud.google.com/compute/docs/instances-and-network}
+ * @see [Addresses: list API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/addresses/list}
  *
  * @param {object=} options - Address search options.
  * @param {boolean} options.autoPaginate - Have pagination handled
@@ -489,7 +489,7 @@ Region.prototype.getAddresses = function(options, callback) {
  *
  * @param {object=} options - Configuration object. See
  *     {module:compute/region#getAddresses} for a complete list of options.
- * @return {stream}
+ * @returns {stream}
  *
  * @example
  * region.getAddressesStream()
@@ -517,8 +517,8 @@ Region.prototype.getAddressesStream = common.paginator.streamify(
 /**
  * Get a list of operations for this region.
  *
- * @resource [Region Operation Overview]{@link https://cloud.google.com/compute/docs/reference/v1/regionOperations}
- * @resource [RegionOperations: list API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/regionOperations/list}
+ * @see [Region Operation Overview]{@link https://cloud.google.com/compute/docs/reference/v1/regionOperations}
+ * @see [RegionOperations: list API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/regionOperations/list}
  *
  * @param {object=} options - Operation search options.
  * @param {boolean} options.autoPaginate - Have pagination handled
@@ -536,7 +536,7 @@ Region.prototype.getAddressesStream = common.paginator.streamify(
  *     representing part of the larger set of results to view.
  * @param {function} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation[]} callback.operations - Operation objects
+ * @param {Operation[]} callback.operations - Operation objects
  *     from this region.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -613,7 +613,7 @@ Region.prototype.getOperations = function(options, callback) {
  *
  * @param {object=} options - Configuration object. See
  *     {module:compute/region#getOperations} for a complete list of options.
- * @return {stream}
+ * @returns {stream}
  *
  * @example
  * region.getOperationsStream()
@@ -641,7 +641,7 @@ Region.prototype.getOperationsStream = common.paginator.streamify(
 /**
  * Get a list of forwading rules in this region.
  *
- * @resource [ForwardingRules: list API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules/list}
+ * @see [ForwardingRules: list API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/forwardingRules/list}
  *
  * @param {object=} options - Rules search options.
  * @param {boolean} options.autoPaginate - Have pagination handled
@@ -736,7 +736,7 @@ Region.prototype.getRules = function(options, callback) {
  *
  * @param {object=} options - Configuration object. See
  *     {module:compute/region#getRulesStream} for a complete list of options.
- * @return {stream}
+ * @returns {stream}
  *
  * @example
  * region.getRulesStream()
@@ -762,8 +762,8 @@ Region.prototype.getRulesStream = common.paginator.streamify('getRules');
 /**
  * Get a list of subnetworks in this region.
  *
- * @resource [Subnetworks Overview]{@link https://cloud.google.com/compute/docs/subnetworks}
- * @resource [Subnetworks: list API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/subnetworks}
+ * @see [Subnetworks Overview]{@link https://cloud.google.com/compute/docs/subnetworks}
+ * @see [Subnetworks: list API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/subnetworks}
  *
  * @param {object=} options - Subnetwork search options.
  * @param {boolean} options.autoPaginate - Have pagination handled
@@ -858,7 +858,7 @@ Region.prototype.getSubnetworks = function(options, callback) {
  *
  * @param {object=} options - Configuration object. See
  *     {module:compute/region#getSubnetworks} for a complete list of options.
- * @return {stream}
+ * @returns {stream}
  *
  * @example
  * region.getSubnetworksStream()
@@ -886,10 +886,10 @@ Region.prototype.getSubnetworksStream = common.paginator.streamify(
 /**
  * Get a reference to a Google Compute Engine region operation.
  *
- * @resource [Region Operation Overview]{@link https://cloud.google.com/compute/docs/reference/v1/regionOperations}
+ * @see [Region Operation Overview]{@link https://cloud.google.com/compute/docs/reference/v1/regionOperations}
  *
  * @param {string} name - Name of the existing operation.
- * @return {module:compute/operation}
+ * @returns {module:compute/operation}
  *
  * @example
  * var operation = region.operation('operation-name');
@@ -902,7 +902,7 @@ Region.prototype.operation = function(name) {
  * Get a reference to a Google Compute Engine forwarding rule in this region.
  *
  * @param {string} name - Name of the rule.
- * @return {module:compute/rule}
+ * @returns {module:compute/rule}
  *
  * @example
  * var rule = region.rule('rule-name');
@@ -914,10 +914,10 @@ Region.prototype.rule = function(name) {
 /**
  * Get a reference to a Google Compute Engine subnetwork in this region.
  *
- * @resource [Subnetworks Overview]{@link https://cloud.google.com/compute/docs/subnetworks}
+ * @see [Subnetworks Overview]{@link https://cloud.google.com/compute/docs/subnetworks}
  *
  * @param {string} name - Name of the subnetwork.
- * @return {module:compute/subnetwork}
+ * @returns {module:compute/subnetwork}
  *
  * @example
  * var subnetwork = region.subnetwork('subnetwork-name');
@@ -946,4 +946,9 @@ common.util.promisifyAll(Region, {
   exclude: ['address', 'operation', 'rule', 'subnetwork'],
 });
 
+/**
+ * Reference to the {@link Region} class.
+ * @name module:@google-cloud/compute.Region
+ * @see Region
+ */
 module.exports = Region;

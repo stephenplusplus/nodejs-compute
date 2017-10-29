@@ -39,7 +39,7 @@ var Disk = require('./disk.js');
  * @private
  *
  * @param {string} message - Custom error message.
- * @return {Error}
+ * @returns {Error}
  */
 var DetachDiskError = createErrorClass('DetachDiskError');
 
@@ -50,7 +50,7 @@ var DetachDiskError = createErrorClass('DetachDiskError');
  * @private
  *
  * @param {string} message - Custom error message.
- * @return {Error}
+ * @returns {Error}
  */
 var WaitForTimeoutError = createErrorClass('WaitForTimeoutError');
 
@@ -85,8 +85,8 @@ var WAIT_FOR_POLLING_INTERVAL_MS = 2000;
  * An Instance object allows you to interact with a Google Compute Engine
  * instance.
  *
- * @resource [Instances and Networks]{@link https://cloud.google.com/compute/docs/instances-and-network}
- * @resource [Instance Resource]{@link https://cloud.google.com/compute/docs/reference/v1/instances}
+ * @see [Instances and Networks]{@link https://cloud.google.com/compute/docs/instances-and-network}
+ * @see [Instance Resource]{@link https://cloud.google.com/compute/docs/reference/v1/instances}
  *
  * @constructor
  * @alias module:compute/vm
@@ -114,7 +114,7 @@ function VM(zone, name) {
     /**
      * Create a virtual machine.
      *
-     * @param {object} config - See {module:compute/zone#createVM}.
+     * @param {object} config - See {Zone#createVM}.
      *
      * @example
      * var config = {
@@ -189,8 +189,8 @@ function VM(zone, name) {
     /**
      * Get the instance's metadata.
      *
-     * @resource [Instance Resource]{@link https://cloud.google.com/compute/docs/reference/v1/instances}
-     * @resource [Instance: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/get}
+     * @see [Instance Resource]{@link https://cloud.google.com/compute/docs/reference/v1/instances}
+     * @see [Instance: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/get}
      *
      * @param {function=} callback - The callback function.
      * @param {?error} callback.err - An error returned while making this
@@ -226,9 +226,9 @@ util.inherits(VM, common.ServiceObject);
 /**
  * Attach a disk to the instance.
  *
- * @resource [Disks Overview]{@link https://cloud.google.com/compute/docs/disks}
- * @resource [Disk Resource]{@link https://cloud.google.com/compute/docs/reference/v1/disks}
- * @resource [Instance: attachDisk API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/attachDisk}
+ * @see [Disks Overview]{@link https://cloud.google.com/compute/docs/disks}
+ * @see [Disk Resource]{@link https://cloud.google.com/compute/docs/reference/v1/disks}
+ * @see [Instance: attachDisk API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/attachDisk}
  *
  * @throws {Error} if a {module:compute/disk} is not provided.
  *
@@ -240,7 +240,7 @@ util.inherits(VM, common.ServiceObject);
  *     for `options.mode = READ_ONLY`)
  * @param {function} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -311,11 +311,11 @@ VM.prototype.attachDisk = function(disk, options, callback) {
 /**
  * Delete the instance.
  *
- * @resource [Instance: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/delete}
+ * @see [Instance: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/delete}
  *
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -346,14 +346,14 @@ VM.prototype.delete = function(callback) {
 /**
  * Detach a disk from the instance.
  *
- * @resource [Instance: detachDisk API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/detachDisk}
+ * @see [Instance: detachDisk API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/detachDisk}
  *
  * @param {module:compute/disk|string} deviceName - The device name of the disk
  *     to detach. If a Disk object is provided, we try to find the device name
  *     automatically by searching through the attached disks on the instance.
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -427,7 +427,7 @@ VM.prototype.detachDisk = function(disk, callback) {
 /**
  * Returns the serial port output for the instance.
  *
- * @resource [Instances: getSerialPortOutput API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/getSerialPortOutput}
+ * @see [Instances: getSerialPortOutput API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/getSerialPortOutput}
  *
  * @param {number=} port - The port from which the output is retrieved (1-4).
  *    Default: `1`.
@@ -510,11 +510,11 @@ VM.prototype.getTags = function(callback) {
 /**
  * Reset the instance.
  *
- * @resource [Instances: reset API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/reset}
+ * @see [Instances: reset API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/reset}
  *
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -554,8 +554,8 @@ VM.prototype.reset = function(callback) {
  * will automatically stop the VM if it is running before changing the machine
  * type. After it is sucessfully changed, the VM will be started.
  *
- * @resource [Instances: setMachineType API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/setMachineType}
- * @resource [Predefined machine types]{@link https://cloud.google.com/compute/docs/machine-types#predefined_machine_types}
+ * @see [Instances: setMachineType API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/setMachineType}
+ * @see [Predefined machine types]{@link https://cloud.google.com/compute/docs/machine-types#predefined_machine_types}
  *
  * @param {string} machineType - Full or partial machine type. See a list of
  *     predefined machine types
@@ -658,12 +658,12 @@ VM.prototype.resize = function(machineType, options, callback) {
 /**
  * Set the metadata for this instance.
  *
- * @resource [Instances: setMetadata API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/setMetadata}
+ * @see [Instances: setMetadata API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/setMetadata}
  *
  * @param {object} metadata - New metadata.
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -724,14 +724,14 @@ VM.prototype.setMetadata = function(metadata, callback) {
 /**
  * Set the instance's tags.
  *
- * @resource [Instances: setTags API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/setTags}
+ * @see [Instances: setTags API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/setTags}
  *
  * @param {string[]} tags - The new tags for the instance.
  * @param {string} fingerprint - The current tags fingerprint. An up-to-date
  *     fingerprint must be provided.
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -779,11 +779,11 @@ VM.prototype.setTags = function(tags, fingerprint, callback) {
 /**
  * Start the instance.
  *
- * @resource [Instances: start API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/start}
+ * @see [Instances: start API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/start}
  *
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -814,11 +814,11 @@ VM.prototype.start = function(callback) {
 /**
  * Stop the instance.
  *
- * @resource [Instances: stop API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/stop}
+ * @see [Instances: stop API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/instances/stop}
  *
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *

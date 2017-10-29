@@ -33,8 +33,8 @@ var util = require('util');
  * A Snapshot object allows you to interact with a Google Compute Engine
  * snapshot.
  *
- * @resource [Snapshots Overview]{@link https://cloud.google.com/compute/docs/disks/persistent-disks#snapshots}
- * @resource [Snapshot Resource]{@link https://cloud.google.com/compute/docs/reference/v1/snapshots}
+ * @see [Snapshots Overview]{@link https://cloud.google.com/compute/docs/disks/persistent-disks#snapshots}
+ * @see [Snapshot Resource]{@link https://cloud.google.com/compute/docs/reference/v1/snapshots}
  *
  * @constructor
  * @alias module:compute/snapshot
@@ -95,8 +95,8 @@ function Snapshot(scope, name) {
     /**
      * Get the snapshot's metadata.
      *
-     * @resource [Snapshot Resource]{@link https://cloud.google.com/compute/docs/reference/v1/snapshots}
-     * @resource [Snapshots: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/snapshots/get}
+     * @see [Snapshot Resource]{@link https://cloud.google.com/compute/docs/reference/v1/snapshots}
+     * @see [Snapshots: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/snapshots/get}
      *
      * @param {function=} callback - The callback function.
      * @param {?error} callback.err - An error returned while making this
@@ -168,11 +168,11 @@ util.inherits(Snapshot, common.ServiceObject);
 /**
  * Delete the snapshot.
  *
- * @resource [Snapshots: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/snapshots/delete}
+ * @see [Snapshots: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/snapshots/delete}
  *
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *
@@ -215,4 +215,9 @@ Snapshot.prototype.delete = function(callback) {
  */
 common.util.promisifyAll(Snapshot);
 
+/**
+ * Reference to the {@link Snapshot} class.
+ * @name module:@google-cloud/compute.Snapshot
+ * @see Snapshot
+ */
 module.exports = Snapshot;

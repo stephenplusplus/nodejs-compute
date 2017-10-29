@@ -32,8 +32,8 @@ var util = require('util');
  * An Subnetwork object allows you to interact with a Google Compute Engine
  * subnetwork.
  *
- * @resource [Subnetworks Overview]{@link https://cloud.google.com/compute/docs/subnetworks}
- * @resource [Subnetwork Resource]{@link https://cloud.google.com/compute/docs/reference/v1/subnetworks}
+ * @see [Subnetworks Overview]{@link https://cloud.google.com/compute/docs/subnetworks}
+ * @see [Subnetwork Resource]{@link https://cloud.google.com/compute/docs/reference/v1/subnetworks}
  *
  * @constructor
  * @alias module:compute/subnetwork
@@ -128,8 +128,8 @@ function Subnetwork(region, name) {
     /**
      * Get the metadata of this subnetwork.
      *
-     * @resource [Subnetwork Resource]{@link https://cloud.google.com/compute/docs/reference/v1/subnetwork}
-     * @resource [Subnetwork: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/subnetwork/get}
+     * @see [Subnetwork Resource]{@link https://cloud.google.com/compute/docs/reference/v1/subnetwork}
+     * @see [Subnetwork: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/subnetwork/get}
      *
      * @param {function=} callback - The callback function.
      * @param {?error} callback.err - An error returned while making this
@@ -165,11 +165,11 @@ util.inherits(Subnetwork, common.ServiceObject);
 /**
  * Delete the subnetwork.
  *
- * @resource [Subnetworks: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/subnetworks/delete}
+ * @see [Subnetworks: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/subnetworks/delete}
  *
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request.
- * @param {module:compute/operation} callback.operation - An operation object
+ * @param {Operation} callback.operation - An operation object
  *     that can be used to check the status of the request.
  * @param {object} callback.apiResponse - The full API response.
  *

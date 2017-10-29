@@ -98,9 +98,9 @@ function Operation(scope, name) {
     /**
      * Delete the operation.
      *
-     * @resource [GlobalOperations: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/globalOperations/delete}
-     * @resource [RegionOperations: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/regionOperations/delete}
-     * @resource [ZoneOperations: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/zoneOperations/delete}
+     * @see [GlobalOperations: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/globalOperations/delete}
+     * @see [RegionOperations: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/regionOperations/delete}
+     * @see [ZoneOperations: delete API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/zoneOperations/delete}
      *
      * @param {function=} callback - The callback function.
      * @param {?error} callback.err - An error returned while making this
@@ -174,9 +174,9 @@ util.inherits(Operation, common.Operation);
  * Get the operation's metadata. For a detailed description of metadata see
  * [Operation resource](https://goo.gl/sWm1rt).
  *
- * @resource [GlobalOperations: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/globalOperations/get}
- * @resource [RegionOperations: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/regionOperations/get}
- * @resource [ZoneOperations: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/zoneOperations/get}
+ * @see [GlobalOperations: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/globalOperations/get}
+ * @see [RegionOperations: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/regionOperations/get}
+ * @see [ZoneOperations: get API Documentation]{@link https://cloud.google.com/compute/docs/reference/v1/zoneOperations/get}
  *
  * @param {function=} callback - The callback function.
  * @param {?error} callback.err - An error returned while making this request
@@ -268,4 +268,9 @@ Operation.prototype.poll_ = function(callback) {
  */
 common.util.promisifyAll(Operation);
 
+/**
+ * Reference to the {@link Operation} class.
+ * @name module:@google-cloud/compute.Operation
+ * @see Operation
+ */
 module.exports = Operation;
